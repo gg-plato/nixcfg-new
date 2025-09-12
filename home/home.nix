@@ -17,15 +17,15 @@
 
   programs.home-manager.enable = true;
   # basic configuration of git, please change to your own
-  
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Adwaita";
-      package = pkgs.adwaita-icon-theme;
-    };
-  };
-  
+
+  # gtk = {
+  #   enable = true;
+  #   theme = {
+  #     name = "Adwaita";
+  #     package = pkgs.adwaita-icon-theme;
+  #   };
+  # };
+
   programs.git = {
     enable = true;
     userName = "Greg";
@@ -38,17 +38,9 @@
     package = pkgs.vscode.fhs;
   };
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-    history.size = 10000;
-  };
-
   services.udiskie = {
     enable = true;
-    tray = "auto";
+    tray = "never";
     settings = {
       # workaround for
       # https://github.com/nix-community/home-manager/issues/632

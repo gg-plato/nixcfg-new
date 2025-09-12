@@ -12,7 +12,8 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./boot.nix
-    # ./fingerprint.nix
+    ./fingerprint.nix
+    ./proxychains.nix
   ];
 
   hardware.bluetooth = {
@@ -66,7 +67,7 @@
   };
 
   # Linux Firmware Update Daemon
-  # services.fwupd.enable = true;
+  services.fwupd.enable = true;
 
   # USB devices auto-mount
   services.udisks2.enable = true;
@@ -81,10 +82,9 @@
     };
   };
 
-
-  programs.zsh.enable = true;
-  # # Set Default Shell
-  users.defaultUserShell = pkgs.zsh;
+  programs.fish.enable = true;
+  # Set Default Shell
+  users.defaultUserShell = pkgs.fish;
 
   nix.settings = {
     experimental-features = [
@@ -97,18 +97,18 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 1w";
+    options = "--delete-older-than 7d";
   };
 
   services.desktopManager.cosmic.enable = true;
   services.displayManager.cosmic-greeter.enable = true;
   # Enable XWayland support in COSMIC
   services.desktopManager.cosmic.xwayland.enable = true;
-  
+
   # Enable gnome-keyring
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.cosmic-greeter.enableGnomeKeyring = true;
-  
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "pt";
@@ -158,14 +158,16 @@
   environment.systemPackages = with pkgs; [
     nil # nix lsp
     nixfmt-rfc-style # nix formatter
+    zotero
+    file-roller
+    cosmic-ext-tweaks
+    foliate
+    papers
+    feh
     discord
     spotify
-    zotero
-    signal-desktop-bin
+    signal-desktop
     starsector
-    cosmic-ext-tweaks
-    microsoft-edge
-    foliate
   ];
 
   fonts.packages = with pkgs; [
@@ -190,15 +192,15 @@
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
-#   services.power-profiles-daemon.enable = false;
-#   services.tlp = {
-#       enable = true;
-#       settings = {
-#        #Optional helps save long term battery health
-#        START_CHARGE_THRESH_BAT0 = 65; # 65 and below it starts to charge
-#        STOP_CHARGE_THRESH_BAT0 = 70; # 70 and above it stops charging
-#       };
-# };
+  # services.power-profiles-daemon.enable = false;
+  # services.tlp = {
+  #   enable = true;
+  #   settings = {
+  #     #Optional helps save long term battery health
+  #     START_CHARGE_THRESH_BAT0 = 50; # 50 and below it starts to charge
+  #     STOP_CHARGE_THRESH_BAT0 = 70; # 70 and above it stops charging
+  #   };
+  # };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
