@@ -13,7 +13,6 @@
     ./hardware-configuration.nix
     ./boot.nix
     ./fingerprint.nix
-    ./proxychains.nix
   ];
 
   hardware.bluetooth = {
