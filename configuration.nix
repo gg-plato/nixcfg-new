@@ -12,7 +12,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./boot.nix
-    ./fingerprint.nix
+    # ./fingerprint.nix
   ];
 
   hardware.bluetooth = {
