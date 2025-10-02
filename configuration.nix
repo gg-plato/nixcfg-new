@@ -44,7 +44,8 @@
 
   environment = {
     sessionVariables = {
-      EDITOR = "hx";
+      # EDITOR = "hx";
+      # COSMIC_DATA_CONTROL_ENABLED = 1;
     };
   };
   # Set your timezone.
@@ -160,8 +161,14 @@
     zotero
     file-roller
     cosmic-ext-tweaks
+    # cosmic-ext-applet-clipboard-manager # Clipboard manager (disabled because of bugs)
     foliate
+    # librum #Not working
     papers
+    libreoffice-qt6-fresh
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.pt_PT
     feh
     discord
     spotify
@@ -172,6 +179,10 @@
   fonts.packages = with pkgs; [
     monaspace
     corefonts
+  ];
+
+  environment.cosmic.excludePackages = with pkgs; [
+    # cosmic-ext-calculator
   ];
 
   services.flatpak.enable = true;

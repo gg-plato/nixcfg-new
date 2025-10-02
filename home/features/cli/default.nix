@@ -4,6 +4,7 @@
     ./fish.nix
     ./starship.nix
     ./ghostty.nix
+    ./helix.nix
   ];
 
   programs.zoxide.enable = true;
@@ -24,7 +25,7 @@
   programs.bat.enable = true;
 
   home.packages = with pkgs; [
-    helix
+    # helix
     btop
     fd
     ripgrep
