@@ -13,7 +13,7 @@
       insert = "bar";
       select = "underline";
     };
-    editor.indent-guide = {
+    editor.indent-guides = {
       render = true;
       character = "┆";
       skip-levels = 1;
