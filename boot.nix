@@ -3,7 +3,7 @@
 {
 
   # Enable zram
-  # zramSwap.enable = true;
+  zramSwap.enable = true;
 
   # Bootloader
   boot = {
@@ -35,7 +35,7 @@
     consoleLogLevel = 0;
     initrd.verbose = false;
 
-    initrd.systemd.enable = true; # zswap lz4 compression needs this
+
     kernelParams = [
       "quiet"
       "splash"
@@ -44,15 +44,6 @@
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
-
-      # Enable zswap
-      "zswap.enabled=1" # enables zswap
-      "zswap.compressor=lz4" # compression algorithm
-      "zswap.max_pool_percent=20" # maximum percentage of RAM that zswap is allowed to use
-      "zswap.shrinker_enabled=1" # whether to shrink the pool proactively on high memory pressure"zswap.enabled=1" # enables zswap
-      "zswap.compressor=lz4" # compression algorithm
-      "zswap.max_pool_percent=20" # maximum percentage of RAM that zswap is allowed to use
-      "zswap.shrinker_enabled=1" # whether to shrink the pool proactively on high memory pressure
     ];
   };
 
