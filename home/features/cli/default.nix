@@ -36,15 +36,15 @@
     gcr # Provides org.gnome.keyring.SystemPrompter
     fastfetch
     rustup
+    typst
     uv
     pixi
-    ruff
-    pyright
-    pylyzer
-    typst
-    tinymist
-    marksman
-    harper
+    # ruff
+    # pyright
+    # pylyzer
+    # tinymist
+    # marksman
+    # harper
     # julia-bin
   ];
 
