@@ -12,7 +12,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./boot.nix
-    # ./fingerprint.nix
+    #./fingerprint.nix
   ];
 
   hardware.bluetooth = {
@@ -144,11 +144,11 @@
   # Install firefox.
   # programs.firefox.enable = true;
 
-  # programs.nix-ld.enable = true;
-  # programs.nix-ld.libraries = with pkgs; [
-  #   # Add any missing dynamic libraries for unpackaged programs
-  #   # here, NOT in environment.systemPackages
-  # ];
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    # Add any missing dynamic libraries for unpackaged programs
+    # here, NOT in environment.systemPackages
+  ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

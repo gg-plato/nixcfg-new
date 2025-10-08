@@ -2,6 +2,7 @@
 {
   imports = [
     ./fish.nix
+    ./nushell.nix
     ./starship.nix
     ./ghostty.nix
     ./helix.nix
