@@ -82,9 +82,14 @@
     };
   };
 
-  programs.fish.enable = true;
-  # Set Default Shell
-  users.defaultUserShell = pkgs.fish;
+  environment.shells = [
+    pkgs.nushell
+  ];
+  programs.bash.interactiveShellInit = ''
+    if [ "$TERM" != "dumb" ] && [ "$TERM" != "linux" ]; then
+      exec nu
+    fi
+  '';
 
   nix.settings = {
     experimental-features = [

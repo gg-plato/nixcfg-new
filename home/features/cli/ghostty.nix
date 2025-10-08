@@ -6,7 +6,7 @@
   programs.ghostty = {
     enable = true;
 
-    enableFishIntegration = true;
+    # enableFishIntegration = true;
     enableBashIntegration = true;
 
     # Configuration written to ~/.config/ghostty/config.txt

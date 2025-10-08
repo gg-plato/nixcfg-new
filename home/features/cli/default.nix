@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ./fish.nix
+    # ./fish.nix
     ./nushell.nix
     ./starship.nix
     ./ghostty.nix
@@ -11,10 +11,10 @@
   programs.zoxide.enable = true;
   programs.eza = {
     enable = true;
-    # enableNushellIntegration = false;
+    enableNushellIntegration = true;
     enableBashIntegration = true;
-    enableZshIntegration = true;
-    enableFishIntegration = true;
+    # enableZshIntegration = true;
+    # enableFishIntegration = true;
     extraOptions = [
       "-l"
       "--icons"
