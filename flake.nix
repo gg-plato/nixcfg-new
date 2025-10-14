@@ -5,6 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     cosmic-unstable.url = "github:ninelore/nixpkgs-cosmic-unstable";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,6 +19,7 @@
       nixpkgs,
       home-manager,
       nixos-hardware,
+      nix-flatpak,
       cosmic-unstable,
       ...
     }@inputs:
@@ -45,7 +47,10 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.greg = import ./home/home.nix;
+            home-manager.users.greg.imports = [
+              ./home/home.nix
+              nix-flatpak.homeManagerModules.nix-flatpak
+            ];
           }
         ];
       };

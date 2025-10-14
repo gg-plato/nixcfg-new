@@ -161,14 +161,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    nil # nix lsp
-    nixfmt-rfc-style # nix formatter
     zotero
     file-roller
     cosmic-ext-tweaks
+    cosmic-ext-applet-caffeine
     # cosmic-ext-applet-clipboard-manager # Clipboard manager (disabled because of bugs)
     foliate
-    # librum #Not working
     papers
     libreoffice-qt6-fresh
     hunspell
@@ -191,13 +189,14 @@
   ];
 
   services.flatpak.enable = true;
-  systemd.services.flatpak-repo = {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
+  # Flatpak Repository setup when not using nix-flatpak
+  # systemd.services.flatpak-repo = {
+  #   wantedBy = [ "multi-user.target" ];
+  #   path = [ pkgs.flatpak ];
+  #   script = ''
+  #     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+  #   '';
+  # };
 
   programs.gamemode.enable = true;
   programs.steam = {

@@ -7,6 +7,7 @@
 {
   imports = [
     ./features/cli
+    ./flatpaks.nix
   ];
 
   home = {
@@ -16,15 +17,6 @@
   };
 
   programs.home-manager.enable = true;
-  # basic configuration of git, please change to your own
-
-  # gtk = {
-  #   enable = true;
-  #   theme = {
-  #     name = "Adwaita";
-  #     package = pkgs.adwaita-icon-theme;
-  #   };
-  # };
 
   programs.git = {
     enable = true;

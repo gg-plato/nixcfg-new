@@ -37,15 +37,17 @@
     fastfetch
     rustup
     typst
+    tinymist
+    nil # nix lsp
+    nixfmt-rfc-style # nix formatter
     uv
-    pixi
+    # pixi
     # ruff
     # pyright
     # pylyzer
-    # tinymist
     # marksman
     # harper
-    # julia-bin
+    # julia
   ];
 
 }
