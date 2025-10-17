@@ -1,5 +1,6 @@
 { pkgs, ... }:
-{  # nix-flatpak
+{
+  # nix-flatpak
   services.flatpak.remotes = [
     {
       name = "flathub";
@@ -23,5 +24,10 @@
     }
   ];
   services.flatpak.uninstallUnmanaged = true;
+  services.flatpak.update.auto = {
+    enable = true;
+    onCalendar = "daily"; # Default value
+  };
+
   services.flatpak.update.onActivation = true;
-  }
+}

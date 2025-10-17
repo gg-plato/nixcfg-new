@@ -44,7 +44,7 @@
 
   environment = {
     sessionVariables = {
-      # EDITOR = "hx";
+      EDITOR = "hx";
       # COSMIC_DATA_CONTROL_ENABLED = 1;
     };
   };
@@ -164,15 +164,12 @@
     zotero
     file-roller
     cosmic-ext-tweaks
-    cosmic-ext-applet-caffeine
-    # cosmic-ext-applet-clipboard-manager # Clipboard manager (disabled because of bugs)
     foliate
     papers
     libreoffice-qt6-fresh
     hunspell
     hunspellDicts.en_US
     hunspellDicts.pt_PT
-    feh
     discord
     spotify
     signal-desktop
