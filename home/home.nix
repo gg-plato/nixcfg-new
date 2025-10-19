@@ -20,9 +20,9 @@
 
   programs.git = {
     enable = true;
-    userName = "Greg";
-    userEmail = "platongrigore@gmail.com";
-    extraConfig.init.defaultBranch = "main";
+    settings.user.name = "Greg";
+    settings.user.email = "platongrigore@gmail.com";
+    settings.init.defaultBranch = "main";
   };
 
   programs.vscode = {
