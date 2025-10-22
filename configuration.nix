@@ -85,11 +85,12 @@
   environment.shells = [
     pkgs.nushell
   ];
-  programs.bash.interactiveShellInit = ''
-    if [ "$TERM" != "dumb" ] && [ "$TERM" != "linux" ]; then
-      exec nu
-    fi
-  '';
+  # Not needed, used nu command in ghostty.nix instead
+  # programs.bash.interactiveShellInit = ''
+  #   if [ "$TERM" != "dumb" ] && [ "$TERM" != "linux" ]; then
+  #     exec nu
+  #   fi
+  # '';
 
   nix.settings = {
     experimental-features = [
@@ -162,17 +163,19 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     zotero
-    file-roller
     cosmic-ext-tweaks
-    foliate
+    file-roller
     papers
+    loupe
+    foliate
     libreoffice-qt6-fresh
     hunspell
     hunspellDicts.en_US
     hunspellDicts.pt_PT
+    thunderbird
     discord
-    spotify
     signal-desktop
+    spotify
     starsector
   ];
 
@@ -198,6 +201,7 @@
   programs.gamemode.enable = true;
   programs.steam = {
     enable = true;
+    # gamescopeSession.enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers

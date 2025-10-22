@@ -43,11 +43,8 @@
     uv
     # pixi
     # ruff
-    # pyright
-    # pylyzer
-    # marksman
+    julia-bin
     # harper
-    # julia
   ];
 
 }
