@@ -11,6 +11,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs =
@@ -21,6 +22,7 @@
       nixos-hardware,
       nix-flatpak,
       cosmic-unstable,
+      catppuccin,
       ...
     }@inputs:
     {
@@ -50,6 +52,7 @@
             home-manager.users.greg.imports = [
               ./home/home.nix
               nix-flatpak.homeManagerModules.nix-flatpak
+              catppuccin.homeModules.catppuccin
             ];
           }
         ];

@@ -13,11 +13,12 @@
   ];
   services.flatpak.packages = [
     "app.zen_browser.zen"
+    "com.microsoft.Edge"
     "com.github.tchx84.Flatseal"
     "com.stremio.Stremio"
     "io.github.Foldex.AdwSteamGtk"
-    "io.github.giantpinkrobots.flatsweep"
     "org.gnome.Firmware"
+    "org.pjbroad.EternallandsClient"
     {
       appId = "io.github.cosmic_utils.minimon-applet";
       origin = "cosmic";

@@ -26,7 +26,6 @@
   programs.bat.enable = true;
 
   home.packages = with pkgs; [
-    # helix
     btop
     fd
     ripgrep
@@ -43,7 +42,7 @@
     uv
     # pixi
     # ruff
-    julia-bin
+    # julia-bin
     # harper
   ];
 

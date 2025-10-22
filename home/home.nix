@@ -42,4 +42,14 @@
       };
     };
   };
+
+  catppuccin = {
+    enable = true;
+    accent = "sapphire";
+    flavor = "macchiato";
+
+    starship.enable = false;
+    helix.enable = false;
+    vscode.profiles.default.enable = false;
+    };
 }
