@@ -42,7 +42,7 @@
     uv
     # pixi
     # ruff
-    # julia-bin
+    julia
     # harper
   ];
 

@@ -113,8 +113,7 @@
 
   # Enable gnome-keyring
   services.gnome.gnome-keyring.enable = true;
-  security.pam.services.cosmic-greeter.enableGnomeKeyring = true;
-
+  
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "pt";
@@ -168,10 +167,7 @@
     papers
     loupe
     foliate
-    libreoffice-qt6-fresh
-    hunspell
-    hunspellDicts.en_US
-    hunspellDicts.pt_PT
+    onlyoffice-desktopeditors
     thunderbird
     discord
     signal-desktop

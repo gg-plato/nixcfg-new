@@ -18,7 +18,6 @@
     "com.stremio.Stremio"
     "io.github.Foldex.AdwSteamGtk"
     "org.gnome.Firmware"
-    "org.pjbroad.EternallandsClient"
     {
       appId = "io.github.cosmic_utils.minimon-applet";
       origin = "cosmic";

@@ -7,6 +7,10 @@
     serviceConfig.Type = "simple";
   };
 
+  # Unlock keyring with fingerprint
+  security.pam.services.*.enableGnomeKeyring = true; # Needed to unlock keyring when logging in with fingerprint
+  security.pam.services.login.fprintAuth = false; # TODO: Disable fingerprint auth for login due to bugs, currently not working
+
   # Install the driver
   services.fprintd = {
     enable = true;
