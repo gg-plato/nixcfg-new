@@ -181,7 +181,7 @@
   ];
 
   environment.cosmic.excludePackages = with pkgs; [
-    # cosmic-ext-calculator
+    cosmic-term
   ];
 
   services.flatpak.enable = true;
