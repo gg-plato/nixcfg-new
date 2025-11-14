@@ -32,7 +32,7 @@
     tealdeer
     zip
     yazi
-    gcr # Provides org.gnome.keyring.SystemPrompter
+    # gcr # Provides org.gnome.keyring.SystemPrompter
     fastfetch
     rustup
     typst
@@ -42,7 +42,7 @@
     uv
     # pixi
     # ruff
-    julia
+    # julia
     # harper
   ];
 
