@@ -32,7 +32,6 @@
     tealdeer
     zip
     yazi
-    # gcr # Provides org.gnome.keyring.SystemPrompter
     fastfetch
     rustup
     typst

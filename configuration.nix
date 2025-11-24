@@ -12,13 +12,13 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./boot.nix
-    #./fingerprint.nix
+    # ./fingerprint.nix
   ];
 
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
+  # hardware.bluetooth = {
+  #   enable = true;
+  #   powerOnBoot = true;
+  # };
 
   # PC Name
   networking.hostName = "codex"; # Define your hostname.
@@ -50,6 +50,12 @@
   };
   # Set your timezone.
   time.timeZone = "Europe/Lisbon";
+
+  # Enable the IBus input method framework.
+  i18n.inputMethod = {
+    enable = true;
+    type = "ibus";
+  };
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -108,16 +114,17 @@
 
   services.desktopManager.cosmic.enable = true;
   services.displayManager.cosmic-greeter.enable = true;
-  # Enable XWayland support in COSMIC
-  services.desktopManager.cosmic.xwayland.enable = true;
+  # services.desktopManager.cosmic.xwayland.enable = true;
 
   # Enable gnome-keyring
-  services.gnome.gnome-keyring.enable = true;
-  
+  services.gnome = {
+    gnome-keyring.enable = true;
+    # gcr-ssh-agent.enable = false; # Shoud be true if gnome-keyring.enable is true
+  };
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "pt";
-    variant = "nodeadkeys";
   };
 
   # Configure console keymap
@@ -163,12 +170,14 @@
   environment.systemPackages = with pkgs; [
     zotero
     cosmic-ext-tweaks
+    cosmic-ext-applet-caffeine
+    tasks
     file-roller
     papers
     loupe
     foliate
-    onlyoffice-desktopeditors
-    thunderbird
+    libreoffice-fresh
+    # thunderbird
     discord
     signal-desktop
     spotify
@@ -181,7 +190,7 @@
   ];
 
   environment.cosmic.excludePackages = with pkgs; [
-    cosmic-term
+    # cosmic-term
   ];
 
   services.flatpak.enable = true;
@@ -202,15 +211,20 @@
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
-  # services.power-profiles-daemon.enable = false;
-  # services.tlp = {
-  #   enable = true;
-  #   settings = {
-  #     #Optional helps save long term battery health
-  #     START_CHARGE_THRESH_BAT0 = 50; # 50 and below it starts to charge
-  #     STOP_CHARGE_THRESH_BAT0 = 70; # 70 and above it stops charging
-  #   };
-  # };
+  services.power-profiles-daemon.enable = false;
+  services.auto-cpufreq = {
+    enable = true;
+    settings = {
+      battery = {
+        governor = "powersave";
+        turbo = "never";
+      };
+      charger = {
+        governor = "performance";
+        turbo = "auto";
+      };
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
