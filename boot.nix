@@ -22,28 +22,28 @@
 
     plymouth = {
       enable = true;
-      theme = "glowing";
+      theme = "hud_3";
       themePackages = with pkgs; [
         # By default we would install all themes
         (adi1090x-plymouth-themes.override {
-          selected_themes = [ "glowing" ];
+          selected_themes = [ 
+            "glowing"
+            "hud_3"
+            "abstract_ring_alt"
+          ];
         })
       ];
     };
 
-    # Enable "Silent Boot"
-    consoleLogLevel = 0;
+    # Enable "Silent boot"
+    consoleLogLevel = 3;
     initrd.verbose = false;
-
-
     kernelParams = [
       "quiet"
       "splash"
       "boot.shell_on_fail"
-      "loglevel=3"
-      "rd.systemd.show_status=false"
-      "rd.udev.log_level=3"
       "udev.log_priority=3"
+      "rd.systemd.show_status=auto"
     ];
   };
 

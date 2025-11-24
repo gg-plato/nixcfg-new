@@ -15,13 +15,8 @@
     # ./fingerprint.nix
   ];
 
-  # hardware.bluetooth = {
-  #   enable = true;
-  #   powerOnBoot = true;
-  # };
-
   # PC Name
-  networking.hostName = "codex"; # Define your hostname.
+  networking.hostName = "shard"; # Define your hostname.
   # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary

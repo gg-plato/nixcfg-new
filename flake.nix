@@ -28,7 +28,7 @@
     }@inputs:
     {
 
-      nixosConfigurations.codex = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.shard = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         # specialArgs = {
         #   inherit inputs;
