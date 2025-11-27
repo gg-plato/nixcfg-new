@@ -24,7 +24,7 @@
       mouse = false;
       bufferline = "multiple";
       cursorline = true;
-      rulers = [80 120];
+      rulers = [120];
     };
   };
   languages.language = [{
