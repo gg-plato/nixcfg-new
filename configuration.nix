@@ -86,12 +86,6 @@
   environment.shells = [
     pkgs.nushell
   ];
-  # Not needed, used nu command in ghostty.nix instead
-  # programs.bash.interactiveShellInit = ''
-  #   if [ "$TERM" != "dumb" ] && [ "$TERM" != "linux" ]; then
-  #     exec nu
-  #   fi
-  # '';
 
   nix.settings = {
     experimental-features = [
@@ -166,8 +160,8 @@
     zotero
     cosmic-ext-tweaks
     cosmic-ext-applet-caffeine
-    cosmic-ext-applet-minimon
-    cosmic-ext-applet-privacy-indicator
+    # cosmic-ext-applet-minimon
+    # cosmic-ext-applet-privacy-indicator
     cosmic-ext-applet-external-monitor-brightness
     tasks
     file-roller
@@ -188,7 +182,7 @@
   ];
 
   environment.cosmic.excludePackages = with pkgs; [
-    # cosmic-term
+    cosmic-term
   ];
 
   services.flatpak.enable = true;
@@ -200,6 +194,10 @@
   #     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
   #   '';
   # };
+
+  systemd.user.extraConfig = ''
+    DefaultEnvironment="PATH=/run/wrappers/bin:/etc/profiles/per-user/%u/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin"
+  '';
 
   programs.gamemode.enable = true;
   programs.steam = {

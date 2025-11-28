@@ -63,6 +63,23 @@
     # ];
   };
 
+  programs.zed-editor = {
+    enable = true;
+    extensions = [
+      "nix"
+      "catppuccin-icons"
+      "nu"
+      "typst"
+      "zedokai"
+      "harper"
+      "rainbow-csv"
+    ];
+    userSettings = {
+      theme = "Zedokai (Filter Octagon)";
+      icon_theme = "Catppuccin Macchiato";
+    };
+  };
+
   services.udiskie = {
     enable = true;
     tray = "never";
@@ -78,11 +95,13 @@
 
   catppuccin = {
     enable = true;
-    accent = "sapphire";
+    accent = "lavender";
     flavor = "macchiato";
 
     starship.enable = false;
     helix.enable = false;
     vscode.profiles.default.enable = false;
+    zed.enable = false;
+
   };
 }
