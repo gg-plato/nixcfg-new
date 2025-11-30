@@ -11,7 +11,10 @@
     };
   
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
-    catppuccin.url = "github:catppuccin/nix";
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     cosmic-unstable.url = "github:ninelore/nixpkgs-cosmic-unstable";
   };
 
@@ -19,12 +22,11 @@
     {
       self,
       nixpkgs,
-      # nixpkgs-stable,
       home-manager,
       nixos-hardware,
       nix-flatpak,
       cosmic-unstable,
-      catppuccin,
+      stylix,
       ...
     }@inputs:
     {
@@ -52,7 +54,7 @@
             home-manager.users.greg.imports = [
               ./home/home.nix
               nix-flatpak.homeManagerModules.nix-flatpak
-              catppuccin.homeModules.catppuccin
+              stylix.homeModules.stylix
             ];
           }
         ];

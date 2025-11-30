@@ -1,6 +1,6 @@
 {
   pkgs,
-  system,
+  # system,
   ...
 }:
 
@@ -38,29 +38,6 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscode.fhs;
-    # package = pkgs.vscodium;
-    # profiles.default.extensions = with pkgs.vscode-extensions; [
-    # monokai.theme-monokai-pro-vscode
-    # catppuccin.catppuccin-vsc-icons
-    # pkief.material-product-icons
-    # elijah-potter.harper
-    # ms-python.python
-    # ms-python.vscode-pylance
-    # ms-python.debugpy
-    # charliermarsh.ruff
-    # njpwerner.autodocstring
-    # jgclark.vscode-todo-highlight
-    # oderwat.indent-rainbow
-    # ms-toolsai.jupyter
-    # ms-toolsai.jupyter-renderers
-    # jnoortheen.nix-ide
-    # thenuprojectcontributors.vscode-nushell-lang
-    # tomoki1207.pdf
-    # rust-lang.rust-analyzer
-
-    # github.copilot
-    # github.copilot-chat
-    # ];
   };
 
   programs.zed-editor = {
@@ -93,15 +70,18 @@
     };
   };
 
-  catppuccin = {
+  stylix = {
     enable = true;
-    accent = "lavender";
-    flavor = "macchiato";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
 
-    starship.enable = false;
-    helix.enable = false;
-    vscode.profiles.default.enable = false;
-    zed.enable = false;
-
+    targets = {
+      zed.enable = false;
+      zen-browser.enable = false;
+      vscode.enable = false;
+      starship.enable = false;
+      helix.enable = false;
+      ghostty.enable = false;
+      fontconfig.enable = false;
+    };
   };
 }

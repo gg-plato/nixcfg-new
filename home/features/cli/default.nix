@@ -33,9 +33,10 @@
     zip
     yazi
     fastfetch
+    gemini-cli
     rustup
     typst
-    tinymist
+    # tinymist
     nil # nix lsp
     nixfmt-rfc-style # nix formatter
     uv

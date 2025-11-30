@@ -160,16 +160,14 @@
     zotero
     cosmic-ext-tweaks
     cosmic-ext-applet-caffeine
-    # cosmic-ext-applet-minimon
-    # cosmic-ext-applet-privacy-indicator
+    cosmic-ext-applet-minimon
+    cosmic-ext-applet-privacy-indicator
     cosmic-ext-applet-external-monitor-brightness
     tasks
     file-roller
     papers
     loupe
     foliate
-    libreoffice-fresh
-    # thunderbird
     discord
     signal-desktop
     spotify

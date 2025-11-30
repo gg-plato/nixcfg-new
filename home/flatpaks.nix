@@ -18,12 +18,12 @@
     "com.stremio.Stremio"
     "io.github.Foldex.AdwSteamGtk"
     # "org.gnome.Firmware"
-    {
-      appId = "io.github.cosmic_utils.minimon-applet";
-      origin = "cosmic";
-    }
+    # {
+    #   appId = "io.github.cosmic_utils.minimon-applet";
+    #   origin = "cosmic";
+    # }
   ];
-  services.flatpak.uninstallUnmanaged = true;
+  services.flatpak.uninstallUnmanaged = false;
   services.flatpak.update.auto = {
     enable = true;
     onCalendar = "daily"; # Default value
