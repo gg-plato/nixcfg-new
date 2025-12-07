@@ -7,11 +7,16 @@
   programs = {
     nushell = {
       enable = true;
+      environmentVariables = {
+
+        # service.gnome-keyring bug
+        SSH_AUTH_SOCK = "/run/user/1000/gcr/ssh";
+      };
       # The config.nu can be anywhere you want if you like to edit your Nushell with Nu
       #configFile.source = ./.../config.nu;
       # for editing directly to config.nu
       extraConfig = ''
-# Completions
+        # Completions
         # mainly pieced together from https://www.nushell.sh/cookbook/external_completers.html
 
         # carapce completions https://www.nushell.sh/cookbook/external_completers.html#carapace-completer

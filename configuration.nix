@@ -27,6 +27,11 @@
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
   users.users.greg = {
     initialHashedPassword = "$y$j9T$YVceDkpYIskOz1qqDvLfe/$P.pefstoDTYnec8CHL9rZPsMGhiXBBNmFvdFmOZBkL/";
     isNormalUser = true;
@@ -40,6 +45,7 @@
   environment = {
     sessionVariables = {
       EDITOR = "hx";
+      # SSH_AUTH_SOCK = "/run/user/1000/gcr/ssh";
       # COSMIC_DATA_CONTROL_ENABLED = 1;
     };
   };
@@ -103,7 +109,7 @@
 
   services.desktopManager.cosmic.enable = true;
   services.displayManager.cosmic-greeter.enable = true;
-  # services.desktopManager.cosmic.xwayland.enable = true;
+  services.desktopManager.cosmic.xwayland.enable = true;
 
   # Enable gnome-keyring
   services.gnome = {
@@ -162,7 +168,6 @@
     cosmic-ext-applet-caffeine
     cosmic-ext-applet-minimon
     cosmic-ext-applet-privacy-indicator
-    cosmic-ext-applet-external-monitor-brightness
     tasks
     file-roller
     papers
@@ -171,7 +176,7 @@
     discord
     signal-desktop
     spotify
-    starsector
+    # starsector
   ];
 
   fonts.packages = with pkgs; [
@@ -180,7 +185,7 @@
   ];
 
   environment.cosmic.excludePackages = with pkgs; [
-    cosmic-term
+    # cosmic-term
   ];
 
   services.flatpak.enable = true;
@@ -200,9 +205,10 @@
   programs.gamemode.enable = true;
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    extraCompatPackages = [pkgs.proton-ge-bin];
+    # remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    # dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    # localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
   services.power-profiles-daemon.enable = false;

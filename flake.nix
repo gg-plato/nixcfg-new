@@ -9,7 +9,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  
+
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     stylix = {
       url = "github:nix-community/stylix";
@@ -38,12 +38,10 @@
         # };
 
         modules = [
-          ./configuration.nix
-          nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen4
           {
             nix.settings = {
-              substituters = [ "https://9lore.cachix.org/" ];
-              trusted-public-keys = [ "9lore.cachix.org-1:H2/a1Wlm7VJRfJNNvFbxtLQPYswP3KzXwSI5ROgzGII=" ];
+              extra-substituters = [ "https://9lore.cachix.org/" ];
+              extra-trusted-public-keys = [ "9lore.cachix.org-1:H2/a1Wlm7VJRfJNNvFbxtLQPYswP3KzXwSI5ROgzGII=" ];
             };
           }
           cosmic-unstable.nixosModules.default
@@ -57,6 +55,8 @@
               stylix.homeModules.stylix
             ];
           }
+          nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen4
+          ./configuration.nix
         ];
       };
     };
