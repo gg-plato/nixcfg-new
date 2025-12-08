@@ -9,6 +9,6 @@
     enableBashIntegration = false; 
 
     # Configuration written to ~/.config/starship.toml
-    # settings = { };
+    # settings = {};
   };
 }

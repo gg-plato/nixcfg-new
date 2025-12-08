@@ -15,7 +15,7 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    cosmic-unstable.url = "github:ninelore/nixpkgs-cosmic-unstable";
+    # cosmic-unstable.url = "github:ninelore/nixpkgs-cosmic-unstable";
   };
 
   outputs =
@@ -25,7 +25,7 @@
       home-manager,
       nixos-hardware,
       nix-flatpak,
-      cosmic-unstable,
+      # cosmic-unstable,
       stylix,
       ...
     }@inputs:
@@ -34,17 +34,17 @@
       nixosConfigurations.shard = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         # specialArgs = {
-        #   inherit inputs;
+          # inherit inputs;
         # };
 
         modules = [
-          {
-            nix.settings = {
-              extra-substituters = [ "https://9lore.cachix.org/" ];
-              extra-trusted-public-keys = [ "9lore.cachix.org-1:H2/a1Wlm7VJRfJNNvFbxtLQPYswP3KzXwSI5ROgzGII=" ];
-            };
-          }
-          cosmic-unstable.nixosModules.default
+          # {
+          #   nix.settings = {
+          #     extra-substituters = [ "https://9lore.cachix.org/" ];
+          #     extra-trusted-public-keys = [ "9lore.cachix.org-1:H2/a1Wlm7VJRfJNNvFbxtLQPYswP3KzXwSI5ROgzGII=" ];
+          #   };
+          # }
+          # cosmic-unstable.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

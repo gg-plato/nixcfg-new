@@ -9,10 +9,23 @@
   boot = {
 
     loader = {
-      systemd-boot = {
+
+      limine = {
         enable = true;
-        # configurationLimit = 3;
+        # secureBoot.enable = false;
+        maxGenerations = 3;
+        style = {
+          wallpapers = [
+            "${pkgs.cosmic-wallpapers}/share/backgrounds/cosmic/webb-inspired-wallpaper-system76.jpg"
+          ];
+          wallpaperStyle = "centered";
+          interface.resolution = "1920x1200";
+        };
       };
+      # systemd-boot = {
+      #   enable = false;
+      #   configurationLimit = 3;
+      # };
       efi.canTouchEfiVariables = true;
     };
 
@@ -26,7 +39,7 @@
       themePackages = with pkgs; [
         # By default we would install all themes
         (adi1090x-plymouth-themes.override {
-          selected_themes = [ 
+          selected_themes = [
             "glowing"
             "hud_3"
             "abstract_ring_alt"

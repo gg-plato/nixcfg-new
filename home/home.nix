@@ -42,6 +42,7 @@
 
   programs.zed-editor = {
     enable = true;
+    installRemoteServer = true;
     extensions = [
       "nix"
       "catppuccin-icons"
@@ -54,6 +55,15 @@
     userSettings = {
       theme = "Zedokai (Filter Octagon)";
       icon_theme = "Catppuccin Macchiato";
+      buffer_font_family = "Monaspace Neon NF";
+      terminal = {
+        font_family = "Monaspace Neon NF";
+      };
+      autosave = {
+        after_delay = {
+          milliseconds = 1000;
+        };
+      };
     };
   };
 
@@ -82,6 +92,7 @@
       helix.enable = false;
       ghostty.enable = false;
       fontconfig.enable = false;
+      qt.enable = false;
     };
   };
 }
