@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -16,10 +16,10 @@
         maxGenerations = 3;
         style = {
           wallpapers = [
-            "${pkgs.cosmic-wallpapers}/share/backgrounds/cosmic/webb-inspired-wallpaper-system76.jpg"
+            "${pkgs.cosmic-wallpapers}/share/backgrounds/cosmic/phytoplankton_bloom_nasa_oli2_20240121.jpg"
           ];
-          wallpaperStyle = "centered";
-          interface.resolution = "1920x1200";
+          graphicalTerminal.margin = 0;
+          graphicalTerminal.background = "80000000";
         };
       };
       # systemd-boot = {

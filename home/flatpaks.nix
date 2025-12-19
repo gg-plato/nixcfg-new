@@ -17,13 +17,14 @@
     "com.github.tchx84.Flatseal"
     "com.stremio.Stremio"
     "io.github.Foldex.AdwSteamGtk"
+    "com.collaboraoffice.Office"
     # "org.gnome.Firmware"
     # {
     #   appId = "io.github.cosmic_utils.minimon-applet";
     #   origin = "cosmic";
     # }
   ];
-  services.flatpak.uninstallUnmanaged = false;
+  services.flatpak.uninstallUnmanaged = true;
   services.flatpak.update.auto = {
     enable = true;
     onCalendar = "daily"; # Default value

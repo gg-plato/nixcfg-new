@@ -46,7 +46,6 @@
   environment = {
     sessionVariables = {
       EDITOR = "hx";
-      # SSH_AUTH_SOCK = "/run/user/1000/gcr/ssh";
       # COSMIC_DATA_CONTROL_ENABLED = 1;
     };
   };
@@ -100,6 +99,7 @@
       "flakes"
     ];
     auto-optimise-store = true;
+    trusted-users = ["greg"];
   };
 
   nix.gc = {
@@ -168,7 +168,6 @@
     cosmic-ext-applet-caffeine
     cosmic-ext-applet-minimon
     cosmic-ext-applet-privacy-indicator
-    tasks
     popsicle
     file-roller
     zotero
@@ -188,6 +187,7 @@
 
   environment.cosmic.excludePackages = with pkgs; [
     # cosmic-term
+    cosmic-reader
   ];
 
   services.flatpak.enable = true;
