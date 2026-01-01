@@ -33,7 +33,7 @@
     zip
     yazi
     fastfetch
-    gemini-cli
+    # gemini-cli
     rustup
     typst
     # tinymist

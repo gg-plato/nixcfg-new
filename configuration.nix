@@ -46,6 +46,7 @@
   environment = {
     sessionVariables = {
       EDITOR = "hx";
+      GTK_IM_MODULE = "simple";
       # COSMIC_DATA_CONTROL_ENABLED = 1;
     };
   };
@@ -53,10 +54,10 @@
   time.timeZone = "Europe/Lisbon";
 
   # Enable the IBus input method framework.
-  i18n.inputMethod = {
-    enable = true;
-    type = "ibus";
-  };
+  # i18n.inputMethod = {
+  #   enable = true;
+  #   type = "ibus";
+  # };
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -99,7 +100,7 @@
       "flakes"
     ];
     auto-optimise-store = true;
-    trusted-users = ["greg"];
+    trusted-users = [ "greg" ];
   };
 
   nix.gc = {
@@ -149,8 +150,11 @@
     #media-session.enable = true;
   };
 
-  # Install firefox.
-  # programs.firefox.enable = true;
+  # Install LibreWolf.
+  # programs.firefox = {
+  #   enable = true;
+  #   package = pkgs.librewolf;
+  # };
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
@@ -168,7 +172,7 @@
     cosmic-ext-applet-caffeine
     cosmic-ext-applet-minimon
     cosmic-ext-applet-privacy-indicator
-    popsicle
+    # popsicle
     file-roller
     zotero
     papers
@@ -177,7 +181,8 @@
     discord
     signal-desktop
     spotify
-    # starsector
+    microsoft-edge
+    starsector
   ];
 
   fonts.packages = with pkgs; [
@@ -186,7 +191,7 @@
   ];
 
   environment.cosmic.excludePackages = with pkgs; [
-    # cosmic-term
+    cosmic-term
     cosmic-reader
   ];
 
@@ -207,7 +212,7 @@
   programs.gamemode.enable = true;
   programs.steam = {
     enable = true;
-    extraCompatPackages = [pkgs.proton-ge-bin];
+    extraCompatPackages = [ pkgs.proton-ge-bin ];
     # remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     # dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     # localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
