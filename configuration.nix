@@ -100,7 +100,7 @@
       "flakes"
     ];
     auto-optimise-store = true;
-    trusted-users = [ "greg" ];
+    trusted-users = [ "@wheel" ];
   };
 
   nix.gc = {
@@ -178,6 +178,7 @@
     papers
     loupe
     foliate
+    onlyoffice-desktopeditors
     discord
     signal-desktop
     spotify
@@ -218,20 +219,20 @@
     # localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
-  services.power-profiles-daemon.enable = false;
-  services.auto-cpufreq = {
-    enable = true;
-    settings = {
-      battery = {
-        governor = "powersave";
-        turbo = "never";
-      };
-      charger = {
-        governor = "performance";
-        turbo = "auto";
-      };
-    };
-  };
+  # services.power-profiles-daemon.enable = false;
+  # services.auto-cpufreq = {
+  #   enable = true;
+  #   settings = {
+  #     battery = {
+  #       governor = "powersave";
+  #       turbo = "never";
+  #     };
+  #     charger = {
+  #       governor = "performance";
+  #       turbo = "auto";
+  #     };
+  #   };
+  # };
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
