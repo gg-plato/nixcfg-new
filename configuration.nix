@@ -108,7 +108,7 @@
 
   services.desktopManager.cosmic.enable = true;
   services.displayManager.cosmic-greeter.enable = true;
-  services.desktopManager.cosmic.xwayland.enable = true;
+  # services.desktopManager.cosmic.xwayland.enable = true;
 
   # Enable gnome-keyring
   services.gnome = {
