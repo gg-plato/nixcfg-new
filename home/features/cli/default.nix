@@ -38,7 +38,7 @@
     typst
     # tinymist
     nil # nix lsp
-    nixfmt-rfc-style # nix formatter
+    nixfmt # nix formatter
     uv
     # pixi
     # ruff

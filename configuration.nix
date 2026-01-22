@@ -27,6 +27,11 @@
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
 
+  zramSwap = {
+    enable = true;
+    # writebackDevice = "/dev/disk/by-uuid/ea4ebbf0-4526-4414-9a29-afc121a1d9c2";
+  };
+
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -46,18 +51,12 @@
   environment = {
     sessionVariables = {
       EDITOR = "hx";
-      GTK_IM_MODULE = "simple";
-      # COSMIC_DATA_CONTROL_ENABLED = 1;
+      GTK_IM_MODULE = "simple"; # Ghostty inpout method
+      # COSMIC_DATA_CONTROL_ENABLED = 1; # Clipboard Manager
     };
   };
   # Set your timezone.
   time.timeZone = "Europe/Lisbon";
-
-  # Enable the IBus input method framework.
-  # i18n.inputMethod = {
-  #   enable = true;
-  #   type = "ibus";
-  # };
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -173,7 +172,6 @@
     cosmic-ext-applet-minimon
     cosmic-ext-applet-privacy-indicator
     # popsicle
-    file-roller
     zotero
     papers
     loupe
@@ -182,7 +180,6 @@
     discord
     signal-desktop
     spotify
-    microsoft-edge
     starsector
   ];
 
@@ -192,19 +189,11 @@
   ];
 
   environment.cosmic.excludePackages = with pkgs; [
-    cosmic-term
+    # cosmic-term
     cosmic-reader
   ];
 
   services.flatpak.enable = true;
-  # Flatpak Repository setup when not using nix-flatpak
-  # systemd.services.flatpak-repo = {
-  #   wantedBy = [ "multi-user.target" ];
-  #   path = [ pkgs.flatpak ];
-  #   script = ''
-  #     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-  #   '';
-  # };
 
   systemd.user.extraConfig = ''
     DefaultEnvironment="PATH=/run/wrappers/bin:/etc/profiles/per-user/%u/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin"
@@ -219,20 +208,20 @@
     # localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
-  # services.power-profiles-daemon.enable = false;
-  # services.auto-cpufreq = {
-  #   enable = true;
-  #   settings = {
-  #     battery = {
-  #       governor = "powersave";
-  #       turbo = "never";
-  #     };
-  #     charger = {
-  #       governor = "performance";
-  #       turbo = "auto";
-  #     };
-  #   };
-  # };
+  services.power-profiles-daemon.enable = false;
+  services.auto-cpufreq = {
+    enable = true;
+    settings = {
+      battery = {
+        governor = "powersave";
+        turbo = "never";
+      };
+      charger = {
+        governor = "performance";
+        turbo = "auto";
+      };
+    };
+  };
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
@@ -263,6 +252,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 
 }

@@ -13,7 +13,7 @@
   home = {
     username = "greg";
     homeDirectory = "/home/greg";
-    stateVersion = "25.05";
+    stateVersion = "25.11";
   };
 
   programs.home-manager.enable = true;
