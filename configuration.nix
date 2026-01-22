@@ -79,13 +79,11 @@
   # USB devices auto-mount
   services.udisks2.enable = true;
 
-  # Use Sudo-rs and disable sudo
+  # Use Sudo-rs
   security = {
-    sudo.enable = false;
     sudo-rs = {
       enable = true;
       execWheelOnly = true;
-      wheelNeedsPassword = true;
     };
   };
 
