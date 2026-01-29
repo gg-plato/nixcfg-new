@@ -12,7 +12,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./boot.nix
-    # ./fingerprint.nix
+    ./fingerprint.nix
   ];
 
   # PC Name
@@ -30,11 +30,6 @@
   zramSwap = {
     enable = true;
     # writebackDevice = "/dev/disk/by-uuid/ea4ebbf0-4526-4414-9a29-afc121a1d9c2";
-  };
-
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
   };
 
   users.users.greg = {
@@ -86,10 +81,6 @@
       execWheelOnly = true;
     };
   };
-
-  environment.shells = [
-    pkgs.nushell
-  ];
 
   nix.settings = {
     experimental-features = [
@@ -153,6 +144,8 @@
   #   package = pkgs.librewolf;
   # };
 
+  programs.fish.enable = true;
+
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     # Add any missing dynamic libraries for unpackaged programs
@@ -179,6 +172,7 @@
     signal-desktop
     spotify
     starsector
+    sbctl
   ];
 
   fonts.packages = with pkgs; [
@@ -194,7 +188,7 @@
   services.flatpak.enable = true;
 
   systemd.user.extraConfig = ''
-    DefaultEnvironment="PATH=/run/wrappers/bin:/etc/profiles/per-user/%u/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin"
+    DefaultEnvironment="PATH=/run/current-system/sw/bin"
   '';
 
   programs.gamemode.enable = true;

@@ -34,17 +34,10 @@
       nixosConfigurations.shard = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         # specialArgs = {
-        # inherit inputs;
+        #   inherit inputs;
         # };
 
         modules = [
-          {
-            nix.settings = {
-              extra-substituters = [ "https://9lore.cachix.org/" ];
-              extra-trusted-public-keys = [ "9lore.cachix.org-1:H2/a1Wlm7VJRfJNNvFbxtLQPYswP3KzXwSI5ROgzGII=" ];
-            };
-          }
-          cosmic-unstable.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -56,6 +49,7 @@
             ];
           }
           nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen4
+          cosmic-unstable.nixosModules.default
           ./configuration.nix
         ];
       };

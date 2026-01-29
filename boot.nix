@@ -12,7 +12,7 @@
 
       limine = {
         enable = true;
-        # secureBoot.enable = false;
+        secureBoot.enable = true;
         maxGenerations = 3;
         style = {
           wallpapers = [

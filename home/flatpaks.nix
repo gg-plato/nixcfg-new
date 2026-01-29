@@ -17,7 +17,7 @@
     "com.github.tchx84.Flatseal"
     "com.stremio.Stremio"
     "io.github.Foldex.AdwSteamGtk"
-    "com.collaboraoffice.Office"
+    # "com.collaboraoffice.Office"
     # "org.gnome.Firmware"
     # {
     #   appId = "io.github.cosmic_utils.minimon-applet";

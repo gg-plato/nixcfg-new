@@ -1,20 +1,20 @@
 { pkgs, ... }:
 {
   imports = [
-    # ./fish.nix
-    ./nushell.nix
+    ./fish.nix
     ./starship.nix
     ./ghostty.nix
     ./helix.nix
   ];
 
+  programs.fzf = {
+    enable = true;
+    enableFishIntegration = true;
+    enableBashIntegration = true;
+  };
   programs.zoxide.enable = true;
   programs.eza = {
     enable = true;
-    enableNushellIntegration = true;
-    enableBashIntegration = true;
-    # enableZshIntegration = true;
-    # enableFishIntegration = true;
     extraOptions = [
       "-l"
       "--icons"
@@ -25,7 +25,7 @@
 
   programs.bat.enable = true;
   programs.btop.enable = true;
-  
+
   home.packages = with pkgs; [
     fd
     ripgrep
@@ -36,14 +36,14 @@
     gemini-cli
     rustup
     typst
-    # tinymist
+    tinymist
     nil # nix lsp
     nixfmt # nix formatter
     uv
     # pixi
     # ruff
     # julia
-    # harper
+    harper
   ];
 
 }
