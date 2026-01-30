@@ -44,6 +44,7 @@
     # julia
     harper
     gemini-cli
+    ollama
   ];
 
 }

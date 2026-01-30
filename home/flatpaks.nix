@@ -17,7 +17,6 @@
     "com.github.tchx84.Flatseal"
     "com.stremio.Stremio"
     "io.github.Foldex.AdwSteamGtk"
-    "com.jeffser.Alpaca"
     # "com.collaboraoffice.Office"
     # "org.gnome.Firmware"
     # {
