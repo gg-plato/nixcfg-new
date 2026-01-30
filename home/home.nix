@@ -5,7 +5,7 @@
 
 {
   imports = [
-    ./features/cli
+    ./cli
     ./flatpaks.nix
   ];
 
